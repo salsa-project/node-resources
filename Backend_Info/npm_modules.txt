@@ -1,0 +1,58 @@
+1/express
+2/nodemon
+3/uuid
+4/ejs
+5/body-parser
+
+-------------express-------------(1)
+express is lightweight framework that let you create server and routers easily (famouse framework).
+/INSTALL/:
+1/in console "npm install express"
+
+-------------nodemon-------------(2)
+nodemon is a module that will update your work without having to restart the server each time.
+/INSTALL/:
+1/in console "npm install nodemon"
+2/in package.json in "scripts" add the following :
+	" "start": "index.js", "dev": "nodemon" "
+3/to run nodemon , in console "npm run dev"
+
+-------------uuid----------------(3)
+uuid is a generator of random IDs.
+/INSTALL/:
+1/ in console "npm install uuid"
+2/ in yourScript.js add "cosnt uuid = require('uuid');"
+3/to use it ex: "let randomId = uuid.v4();"
+
+-------------ejs----------------(4)
+ejs is a template engine to implement javascript in html
+/INSTALL/:
+1/in console "npm install ejs"
+2/set ejs in our project with express framework
+	"app.set('view engine', 'ejs');"
+3/create a folder must be named
+	"views"
+4/inside the "views" folder create a file with any name but the extension must be ".ejs"
+	"fileName.ejs"
+	--NOTE--:"fileName.ejs" accept the regular html normally.
+5/to output the "fileName.js" we will use "res.render('fileName')"
+	--NOTE--: to compiler know that the file "fileName" is inside the "views" folder.
+6/to output a data , we will add an object as second parameter to the response
+	"res.render('fileName', {anyName: "any data here"})"
+7/inside "fileName.ejs" add the following inside any html tag
+	"<%= anyName %>" 
+
+-------------body-parser----------------(5)
+body-parser is a middelware that parse incoming request bodies into an object before you handle it.
+/INSTALL/:
+1/in console "npm install body-parser"
+2/set it in project "const bodyParser = require('body-parser');"
+3/parse the request "var urlencodedParser = bodyParser.urlencoded({ extended: false });"
+4/use the parsed request by add "urlencodedParser" as a second parameter after the route ex:
+	"app.post('/index', urlencodedParser, (req,res)=>{})"
+5/get the parsed data object from the request 
+	"const anyName = req.body;"
+--NOTE--: "req.body" is an object that holds the data that was sent from the client to the server with POST method , ex: like (signup form) .
+ 
+
+
